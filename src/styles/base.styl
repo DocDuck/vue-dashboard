@@ -1,31 +1,35 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
 
-:root {
-   font-size: 62.5%;
-}
+:root
+   font-size: 62.5%
 
-body {
+body
+   display flex
+   flex-direction: column
+   align-items center
+   text-align center
    font-family: Roboto;
    font-weight: 400;
    width: 100%;
    margin: 0;
    font-size: 1.6rem;
-}
 
-#sidebar {
-   position: relative;
-   display: flex;
-   flex-direction: column;
-   background-image: linear-gradient(-180deg, #80b6db 0%, #7da7e2 100%);
-}
+::placeholder
+   color: #FFFFFF
+   opacity: 0.6
 
-#search {
-   text-align: center;
-   height: 20vh;
-   position: relative;
-}
+.sidebar 
+   position: relative
+   display: flex
+   flex-direction: column
+   background-image: linear-gradient(-180deg, #80b6db 0%, #7da7e2 100%)
 
-#location-input {
+.search
+   text-align: center
+   height: 20vh
+   position: relative
+
+.location-input
    height: 42px;
    width: 100%;
    opacity: 1;
@@ -37,16 +41,8 @@ body {
    color: #ffffff;
    font-size: 1.8rem;
    line-height: 21px;
-}
-
-#location-input:focus {
-   outline: none;
-}
-
-::placeholder {
-   color: #FFFFFF;
-   opacity: 0.6;
-}
+   &:focus
+      outline: none
 
 #current-weather {
    color: #ffffff;

@@ -1,7 +1,7 @@
 <template>
   <div id="app" class='app'>
     <app-header/>
-    <router-view/>
+    <router-view/>    
   </div>
 </template>
 
@@ -12,6 +12,11 @@ export default {
     name: 'app',
     components: {
         appHeader
+    },
+    data () {
+      return {
+               
+      }
     }
 }
 </script>

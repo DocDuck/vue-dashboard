@@ -8,6 +8,7 @@ import Widgets from 'fusioncharts/fusioncharts.widgets'
 import PowerCharts from 'fusioncharts/fusioncharts.powercharts'
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion'
 import VueFusionCharts from 'vue-fusioncharts'
+import './plugins/element.js'
 
 // Resolve the dependencies
 Charts(FusionCharts)

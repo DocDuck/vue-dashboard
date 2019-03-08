@@ -4,35 +4,28 @@
     <ul>
       <li :key="childComponent" v-for="childComponent in childComponents">{{ childComponent }}</li>
     </ul>
+    <code>{{weather_data}}</code>
   </div>
 </template>
 
 <script>
+// helpers
+import {mapState} from 'vuex'
+
+// модули
+// import store from '@/store'
+
 export default {
   data () {
     return {
-      childComponents: ['TempVarChart.vue', 'Highlights.vue'],
-      weather_data: {
-        location: "Perm",
-        temperature: {
-          current: "5 C",
-        },
-        highlights: {
-          uvindex: "1",
-          windstatus: {
-            speed: "10 km/h",
-            direction: "N-E",
-          },
-          visibility: "12 km",
-        },
-      },
+      childComponents: ['TempVarChart.vue', 'Highlights.vue']
     }
   },
   methods: {
 
   },
   computed: {
-
-  },
+    ...mapState(['weather_data'])
+  }
 }
 </script>

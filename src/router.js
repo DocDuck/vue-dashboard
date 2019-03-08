@@ -8,16 +8,13 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: () => import(/* webpackChunkName: "about" */ './views/DashboardContainer.vue')
+      path: '/dashboard',
+      name: 'dashboard',
+      component: () => import(/* webpackChunkName: "dashboard" */ './views/DashboardContainer.vue')
     },
     {
       path: '/map',
-      name: 'm',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      name: 'map',
       component: () => import(/* webpackChunkName: "map" */ './views/MapContainer.vue')
     }
   ]

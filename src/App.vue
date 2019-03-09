@@ -12,11 +12,6 @@ export default {
     name: 'app',
     components: {
         appHeader
-    },
-    data () {
-      return {
-               
-      }
     }
 }
 </script>

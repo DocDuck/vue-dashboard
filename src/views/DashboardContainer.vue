@@ -1,21 +1,23 @@
 <template>
-  <div>
-    <p>This child components of Content.vue are:</p>
-    <ul>
-      <li :key="childComponent" v-for="childComponent in childComponents">{{ childComponent }}</li>
-    </ul>
-    <code>{{weather_data}}</code>
-  </div>
+ <div style="position: relative;">
+    <temp-var-chart :tempVar="weather_data.temperature"></temp-var-chart>
+    <today-highlights :highlights="weather_data.highlights"></today-highlights>
+ </div>
 </template>
 
 <script>
 // helpers
 import {mapState} from 'vuex'
 
-// модули
-// import store from '@/store'
+// Компонты
+import TempVarChart from '@/components/TempVarChart.vue'
+import Highlights from '@/components/Highlights.vue'
 
 export default {
+  components: {
+    'temp-var-chart': TempVarChart,
+    'today-highlights': Highlights
+  },
   data () {
     return {
       childComponents: ['TempVarChart.vue', 'Highlights.vue']

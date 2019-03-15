@@ -6,6 +6,11 @@ module.exports = {
     types.forEach(type => addStyleResource(config.module.rule('stylus').oneOf(type)))
   },
 
+  baseUrl: process.env.NODE_ENV === 'production'
+      ? 'C:/SRC/vue-dashboard/dist/'
+      : '/'
+  ,
+
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'stylus',

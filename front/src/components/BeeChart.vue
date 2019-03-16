@@ -1,16 +1,16 @@
 <template>
-  <div id="uvindex">
-    <p>UV Index: {{ uvindex }}</p>
+  <div id="chart">
+    {{ finData }}
   </div>
 </template>
 
 <script>
 
 export default {
-  props: ["highlights"],
+  props: ["finData"],
   data () {
     return {
-      uvindex: this.highlights.uvindex
+
     }
   },
   methods: {

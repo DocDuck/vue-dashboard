@@ -7,32 +7,33 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         tableData: [{
-            date: 'Jan 2017',
+            name: 'Сервис 1',
             rooms: [{
-                name: 'Room A',
-                attending: 10,
+                date: '20.01.18',
+                attending: 77,
                 interested: 5
             }, {
-                name: 'Room B',
-                attending: 5,
+                date: '22.01.18',
+                attending: 666,
                 interested: 10
             }]
         }, {
-            date: 'Feb 2017',
+            name: 'Сервис 2',
             rooms: [{
-                name: 'Room A',
-                attending: 0,
+                date: '18.01.18',
+                attending: 5555,
                 interested: 5
-            }, {
-                name: 'Room B',
-                attending: 5,
-                interested: 15
+            },
+            {
+                date: '21.01.18',
+                attending: 600,
+                interested: 1500
             }]
         }, {
-            date: 'Mar 2017',
+            name: 'Сервис 3',
             rooms: [{
-                name: 'Room B',
-                attending: 5
+                date: '22.01.18',
+                attending: 500
             }]
         }],
         dataLoading: false,

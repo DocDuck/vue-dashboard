@@ -14,13 +14,13 @@
                 min-width="140">
             <template slot-scope="item">
                 <div class="cell">
-                    {{ item.row.date }}
+                    {{ item.row.name }}
                 </div>
                 <!--font-ico-ready font-ico-expire font-ico-outlaw-->
             </template>
         </el-table-column>
 
-        <el-table-column :label="room" :prop="JSON.stringify({room, property:'attending'})" :formatter="cellFormatter" align="center" v-for="room in rooms" :key="room">
+        <el-table-column :label="ev" :prop="JSON.stringify({ev, property:'attending'})" :formatter="cellFormatter" align="center" v-for="ev in finEvs" :key="ev">
 
         </el-table-column>
 
@@ -38,7 +38,7 @@ export default {
         formatMoney,
         cellFormatter (row, col) {
             let key = JSON.parse(col.property)
-            let d = row.rooms.find(r => r.name === key.room)
+            let d = row.rooms.find(r => r.date === key.ev)
             if (d && d[key.property]) {
                 return d[key.property]
             }
@@ -47,13 +47,14 @@ export default {
 
     },
     computed: {
-        rooms () {
+        finEvs () {
             let rooms = {}
             this.tableData.forEach(row => {
                 row.rooms.forEach(room => {
-                    rooms[room.name] = 1
+                    rooms[room.date] = 1
                 })
             })
+            console.log(rooms)
             return Object.keys(rooms)
         }
     }

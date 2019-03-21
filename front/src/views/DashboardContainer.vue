@@ -3,7 +3,7 @@
      <bee-chart class="chart"></bee-chart>
      <div class="panel">
          <bee-tabs></bee-tabs>
-         <bee-table :finData="finData"></bee-table>
+         <bee-table :tableData="tableData"></bee-table>
      </div>
  </div>
 </template>
@@ -30,7 +30,7 @@ export default {
 
   },
   computed: {
-    ...mapState(['finData'])
+    ...mapState(['tableData'])
   }
 }
 </script>

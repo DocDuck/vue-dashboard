@@ -6,154 +6,41 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        finData: [
-            {
-                serviceName: 'Сервис 1',
-                stats: [
-                {
-                    date: "18.01.18",
-                    expense: 100,
-                    income: 4000
-                },
-                {
-                    date: "18.01.18",
-                    expense: 100,
-                    income: 4000
-                },
-                {
-                    date: "18.01.18",
-                    expense: 100,
-                    income: 4000
-                },
-                {
-                    date: "18.01.18",
-                    expense: 100,
-                    income: 4000
-                },
-                {
-                    date: "18.01.18",
-                    expense: 100,
-                    income: 4000
-                },
-                {
-                    date: "18.01.18",
-                    expense: 100,
-                    income: 4000
-                }
-                ]
-            },
-            {
-                serviceName: 'Сервис 2',
-                stats: [
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    },
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    },
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    },
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    },
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    },
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    }
-                ]
-            },
-            {
-                serviceName: 'Сервис 3',
-                stats: [
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    },
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    },
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    },
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    },
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    },
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    }
-                ]
-            },
-            {
-                serviceName: 'Сервис 4',
-                stats: [
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    },
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    },
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    },
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    },
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    },
-                    {
-                        date: "18.01.18",
-                        expense: 100,
-                        income: 4000
-                    }
-                ]
-            }
-        ],
+        tableData: [{
+            date: 'Jan 2017',
+            rooms: [{
+                name: 'Room A',
+                attending: 10,
+                interested: 5
+            }, {
+                name: 'Room B',
+                attending: 5,
+                interested: 10
+            }]
+        }, {
+            date: 'Feb 2017',
+            rooms: [{
+                name: 'Room A',
+                attending: 0,
+                interested: 5
+            }, {
+                name: 'Room B',
+                attending: 5,
+                interested: 15
+            }]
+        }, {
+            date: 'Mar 2017',
+            rooms: [{
+                name: 'Room B',
+                attending: 5
+            }]
+        }],
         dataLoading: false,
         error: ''
     },
     mutations: {
-        'finData': (state, {data}) => {
-            state.finData = data
+        'tableData': (state, {data}) => {
+            state.tableData = data
         },
         'dataLoading': (state, loading) => {
             state.dataLoading = loading
@@ -172,7 +59,7 @@ export default new Vuex.Store({
                 })
                     .then(xhr => {
                         let data = xhr.data
-                        commit('finData', {data})
+                        commit('tableData', {data})
                         resolve(xhr)
                     })
                     .catch(error => {

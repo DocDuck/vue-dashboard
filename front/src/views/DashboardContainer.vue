@@ -1,7 +1,10 @@
 <template>
- <div style="position: relative;">
-     <bee-chart></bee-chart>
-     <bee-panel></bee-panel>
+ <div class="content">
+     <bee-chart class="chart"></bee-chart>
+     <div class="panel">
+         <bee-tabs></bee-tabs>
+         <bee-table :finData="finData"></bee-table>
+     </div>
  </div>
 </template>
 
@@ -11,17 +14,17 @@ import {mapState} from 'vuex'
 
 // Компонты
 import BeeChart from '@/components/BeeChart.vue'
-import BeePanel from '@/components/BeePanel.vue'
+import BeeTabs from '@/components/BeeTabs.vue'
+import BeeTable from '@/components/BeeTable.vue'
 
 export default {
   components: {
       BeeChart,
-      BeePanel
+      BeeTabs,
+      BeeTable
   },
   data () {
-    return {
-      childComponents: ['TempVarChart.vue', 'Highlights.vue']
-    }
+    return {}
   },
   methods: {
 

@@ -1,5 +1,5 @@
 <template>
-  <div id="chart">
+  <div class="chart">
     {{ finData }}
   </div>
 </template>

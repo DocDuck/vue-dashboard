@@ -20,7 +20,7 @@
             </template>
         </el-table-column>
 
-        <el-table-column :label="ev" :prop="JSON.stringify({ev, property:'attending'})" :formatter="cellFormatter" align="center" v-for="ev in finEvs" :key="ev">
+        <el-table-column :label="date" :prop="JSON.stringify({date, property:'attending'})" :formatter="cellFormatter" align="center" v-for="date in unicFinDates" :key="date">
 
         </el-table-column>
 
@@ -36,9 +36,10 @@ export default {
     methods: {
         formatDate,
         formatMoney,
+        // фильтрует  массив с событиямя и кладет в ячейку соответствующий ключу (дате)
         cellFormatter (row, col) {
             let key = JSON.parse(col.property)
-            let d = row.rooms.find(r => r.date === key.ev)
+            let d = row.finEvents.find(r => r.date === key.date)
             if (d && d[key.property]) {
                 return d[key.property]
             }
@@ -47,18 +48,18 @@ export default {
 
     },
     computed: {
-        finEvs () {
-            let rooms = {}
+        // возвращает нумированный массив с уникальными датами финансовых событий
+        unicFinDates () {
+            let finEvents = {}
             this.tableData.forEach(row => {
-                row.rooms.forEach(room => {
-                    rooms[room.date] = 1
+                row.finEvents.forEach(finEvent => {
+                    finEvents[finEvent.date] = 1
                 })
             })
-            console.log(rooms)
-            return Object.keys(rooms)
+            console.log(Object.keys(finEvents))
+            return Object.keys(finEvents)
         }
     }
-
 
 }
 </script>

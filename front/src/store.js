@@ -8,7 +8,7 @@ export default new Vuex.Store({
     state: {
         tableData: [{
             name: 'Сервис 1',
-            rooms: [{
+            finEvents: [{
                 date: '20.01.18',
                 attending: 77,
                 interested: 5
@@ -19,7 +19,7 @@ export default new Vuex.Store({
             }]
         }, {
             name: 'Сервис 2',
-            rooms: [{
+            finEvents: [{
                 date: '18.01.18',
                 attending: 5555,
                 interested: 5
@@ -31,8 +31,8 @@ export default new Vuex.Store({
             }]
         }, {
             name: 'Сервис 3',
-            rooms: [{
-                date: '22.01.18',
+            finEvents: [{
+                date: '24.01.18',
                 attending: 500
             }]
         }],

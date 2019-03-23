@@ -39,7 +39,10 @@ export default {
         // фильтрует  массив с событиямя и кладет в ячейку соответствующий ключу (дате)
         cellFormatter (row, col) {
             let key = JSON.parse(col.property)
-            let d = row.finEvents.find(r => r.date === key.date)
+            let d = row.finEvents.find(r => {
+                let fDate = this.formatDate(r.date)
+                return fDate === key.date
+            })
             if (d && d[key.property]) {
                 return d[key.property]
             }
@@ -48,16 +51,21 @@ export default {
 
     },
     computed: {
-        // возвращает нумированный массив с уникальными датами финансовых событий
+        // возвращает массив с уникальными датами финансовых событий, отсортированный по возрастанию и приведенный к виду dd.mm.yyyy
         unicFinDates () {
-            let finEvents = {}
+            let finEventDates = {}
+            let formatDates = []
             this.tableData.forEach(row => {
                 row.finEvents.forEach(finEvent => {
-                    finEvents[finEvent.date] = 1
+                    finEventDates[finEvent.date] = 1
                 })
             })
-            console.log(Object.keys(finEvents))
-            return Object.keys(finEvents)
+            let sortedDates = Object.keys(finEventDates).sort(function(a, b){
+                let dateA = Date.parse(a), dateB = Date.parse(b)
+                return dateA - dateB //сортировка по возрастающей дате
+            })
+            sortedDates.forEach( (date) => {formatDates.push( this.formatDate(date) )})
+            return formatDates
         }
     }
 

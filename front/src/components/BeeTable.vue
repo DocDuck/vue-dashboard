@@ -3,6 +3,7 @@
               border
               :data="tableData">
         <el-table-column
+                align="center"
                 class="cell"
                 label="№"
                 type="index"
@@ -10,6 +11,7 @@
 
         </el-table-column>
         <el-table-column
+                align="center"
                 label="Сервис"
                 min-width="140">
             <template slot-scope="item">
@@ -32,7 +34,7 @@ import {formatMoney, formatDate} from '@/helpers/format'
 
 export default {
     name: "BeeTable",
-    props: ['tableData'],
+    props: ['tableData', 'unicFinDates'],
     methods: {
         formatDate,
         formatMoney,
@@ -51,22 +53,7 @@ export default {
 
     },
     computed: {
-        // возвращает массив с уникальными датами финансовых событий, отсортированный по возрастанию и приведенный к виду dd.mm.yyyy
-        unicFinDates () {
-            let finEventDates = {}
-            let formatDates = []
-            this.tableData.forEach(row => {
-                row.finEvents.forEach(finEvent => {
-                    finEventDates[finEvent.date] = 1
-                })
-            })
-            let sortedDates = Object.keys(finEventDates).sort(function(a, b){
-                let dateA = Date.parse(a), dateB = Date.parse(b)
-                return dateA - dateB //сортировка по возрастающей дате
-            })
-            sortedDates.forEach( (date) => {formatDates.push( this.formatDate(date) )})
-            return formatDates
-        }
+
     }
 
 }

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "chart.js": "^2.8.0",
     "element-ui": "^2.4.5",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.21",

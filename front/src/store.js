@@ -6,6 +6,21 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
+        fishData: {
+            labels: ["tableData[0].finEvents[0]", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            datasets: [
+                {
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1
+                },
+                {
+                    label: '# of Points',
+                    data: [7, 11, 5, 8, 3, 7],
+                    borderWidth: 1
+                }
+            ]
+        },
         tableData: [{
             name: 'Сервис 1',
             finEvents: [{
@@ -32,8 +47,23 @@ export default new Vuex.Store({
         }, {
             name: 'Сервис 3',
             finEvents: [{
-                date: '2019-01-01',
-                attending: 500
+                date: '2018-01-18',
+                attending: 123,
+                interested: 5
+            },
+            {
+                date: '2018-04-20',
+                attending: 600,
+                interested: 1500
+            },{
+                date: '2018-01-24',
+                attending: 5555,
+                interested: 5
+            },
+            {
+                date: '2018-04-26',
+                attending: 44,
+                interested: 1500
             }]
         }],
         dataLoading: false,

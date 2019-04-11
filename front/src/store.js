@@ -85,7 +85,7 @@ export default new Vuex.Store({
         'loadFinanceData': ({commit, getters, dispatch, state}) => {
             return new Promise((resolve, reject) => {
                 commit('dataLoading', true)
-                API.post('', {}, {
+                API.all('api', {}, {
                     id: ''
                 })
                     .then(xhr => {

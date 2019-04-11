@@ -1,7 +1,9 @@
 <template>
     <el-table class="table"
               border
-              :data="tableData">
+              show-summary
+              :data="tableData"
+              style="width: 100%">
         <el-table-column
                 align="center"
                 class="cell"
@@ -15,14 +17,13 @@
                 label="Сервис"
                 min-width="140">
             <template slot-scope="item">
-                <div class="cell">
-                    {{ item.row.name }}
-                </div>
+                {{ item.row.name }}
+
                 <!--font-ico-ready font-ico-expire font-ico-outlaw-->
             </template>
         </el-table-column>
 
-        <el-table-column :label="date" :prop="JSON.stringify({date, property:'attending'})" :formatter="cellFormatter" align="center" v-for="date in unicFinDates" :key="date">
+        <el-table-column sortable :label="date" :prop="JSON.stringify({date, property:'attending'})" :formatter="cellFormatter" align="center" v-for="date in unicFinDates" :key="date">
 
         </el-table-column>
 
@@ -46,9 +47,9 @@ export default {
                 return fDate === key.date
             })
             if (d && d[key.property]) {
-                return d[key.property]
+                return Number(d[key.property])
             }
-            return '0 '
+            return 0
         }
 
     },

@@ -12,9 +12,9 @@ export default new Router({
       component: () => import(/* webpackChunkName: "dashboard" */ './views/DashboardContainer.vue')
     },
     {
-      path: '/map',
-      name: 'map',
-      component: () => import(/* webpackChunkName: "map" */ './views/MapContainer.vue')
+      path: '/another',
+      name: 'another',
+      component: () => import(/* webpackChunkName: "map" */ './views/AnotherContainer.vue')
     }
   ]
 })

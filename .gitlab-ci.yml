@@ -1,0 +1,33 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+before_script:
+  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+
+build-master-smx:
+  stage: build
+  script:
+    - export PLATFORM=smx
+    - docker build --build-arg PLATFORM=$PLATFORM --pull -t "$CI_REGISTRY_IMAGE:$PLATFORM" .
+    - docker push "$CI_REGISTRY_IMAGE:$PLATFORM"
+  only:
+    - master
+
+build-master-sky:
+  stage: build
+  script:
+    - export PLATFORM=sky
+    - docker build --build-arg PLATFORM=$PLATFORM --pull -t "$CI_REGISTRY_IMAGE:$PLATFORM" .
+    - docker push "$CI_REGISTRY_IMAGE:$PLATFORM"
+  only:
+    - master
+
+build:
+  stage: build
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+  except:
+    - master
